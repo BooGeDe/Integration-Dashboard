@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+.container-fluid {
+  margin: 0;
+}
+
+#data {
+  margin: 2em 0;
+}
+
+#dataTable tr td:last-child,
+tr td:nth-last-of-type(-n + 2) {
+  display: none;
+}
+
+#dataTable {
+  text-align: center;
+}
+
+.loading {
+  display: none;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border-top: 5px solid #f26826;
+  border-bottom: 5px solid #f26623;
+  width: 70;
+  height: 70;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  position: fixed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loadingsmall {
+  width: 35;
+  height: 35;
+  border-top: 4px solid #f26826;
+  border-bottom: 4px solid #f26623;
+  -webkit-animation: reverseSpin 1s linear infinite;
+  animation: reverseSpin 1s linear infinite;
+  top: 52%;
+  left: 51.5%;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes reverseSpin {
+  0% {
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@keyframes reverseSpin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#logout {
+  margin-left: 10px;
+}
+
+#attachmentData {
+  overflow: scroll;
+}

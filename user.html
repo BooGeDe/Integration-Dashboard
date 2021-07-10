@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link href="MDB-Free_4.19.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="MDB-Free_4.19.2/css/addons/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="icon" href="Logo.png">
+    <title>Integration Dashboard</title>
+</head>
+<body>
+  <nav class="navbar navbar-light" style="box-shadow: 0 0 8px 0px #80808063;">
+    <a class="navbar-brand" href="#" style="line-height: 60px;">
+      <img src="Logo.png" width="125" height="50" class="d-inline-block align-top" alt="">
+      Integration Dashboard
+    </a>
+    <span class="navbar-text" id="Username">
+      Abdelrahman Saeed
+      <button class="btn btn-outline-danger my-2 my-sm-0" id="logout">logout</button>
+    </span>
+  </nav>
+    <div class="container-fluid">
+      
+        <div id="data">
+            
+            <table id="dataTable" class="display table table-striped table-bordered" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Topic</th>
+                        <th>Action</th>
+                        <th style="display: none;">steps</th>
+                        <th style="display: none;">attachments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+        </div>
+        <footer></footer>
+    </div>
+
+<!--Steps Modal-->
+    <div class="modal fade" id="Steps" tabindex="-1" role="dialog" aria-labelledby="StepsModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Steps</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="stepsData" class="modal-body">
+              Steps Go Here.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--Attachments Modal-->
+
+<div class="modal fade" id="attachments" tabindex="-1" role="dialog" aria-labelledby="AttachmentsModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Attachments</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id='attachmentData' class="modal-body">
+          <img />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!--Edit Modal-->
+
+  <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="EditModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalTitle">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id='editData' class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="ID">ID</label>
+              <input class="form-control" type="text" placeholder="ID" id="ID" readonly>
+            </div>
+            
+            <div class="form-group">
+              <label for="Desc">Description</label>
+              <input class="form-control" type="text" placeholder="Description" id="Desc">
+            </div>
+
+            <div class="form-group">
+              <label for="Topic">Topic</label>
+              <input class="form-control" type="text" placeholder="Topic" id="Topic">
+            </div>
+            
+            <div class="form-group">
+              <label for="stepsTextarea">Steps</label>
+              <textarea class="form-control" id="stepsTextarea" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="AttachmentURL">Attachment</label>
+              <input class="form-control" type="text" placeholder="AttachmentURL" id="AttachmentURL">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Add new</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="loading">
+
+</div>
+</div>
+
+<script type="text/javascript" src="MDB-Free_4.19.2/js/jquery.min.js"></script>
+<script type="text/javascript" src="MDB-Free_4.19.2/js/popper.min.js"></script>
+<script type="text/javascript" src="MDB-Free_4.19.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="MDB-Free_4.19.2/js/mdb.min.js"></script>
+<script type="text/javascript" src="MDB-Free_4.19.2/js/addons/datatables.min.js"></script>
+<script type="text/javascript" src="mainScript.js"></script>
+<script type="text/javascript" src="user.js"></script>
+</body>
+</html>
