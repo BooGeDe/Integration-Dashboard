@@ -4,7 +4,7 @@ const creats1 = `<button id="showSteps" type="button" class="btn btn-success" da
 <button id="showAttach" type="button" class="btn btn-success" data-toggle="modal" data-target="#attachments">Show Attachments</button>
 <button id="showEdit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Edit">Edit</button>
 <button id="Delete" type="button" class="btn btn-danger">Delete</button>`;
-
+var BaseURL = "http://192.168.137.117:5000/";
 $(document).ready(function () {
 loadData();
 
@@ -54,7 +54,7 @@ function loadData()
     loadDiv.style.display="block";
   });
   
-  var url = "http://192.168.137.117:5000/Topics";
+  var url = BaseURL+"Topics";
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url);
   xhr.onreadystatechange = function () {
@@ -84,7 +84,7 @@ xhr.send();
 
 function deleteRec(ID)
 {
-  var url = "http://192.168.137.117:5000/Topics/Delete";
+  var url = BaseURL+"Topics/Delete";
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
@@ -108,7 +108,7 @@ function deleteRec(ID)
 
 function insert()
 {
-  var url = "http://192.168.137.117:5000/Topics/Add";
+  var url = BaseURL+"Topics/Add";
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url);
@@ -138,7 +138,7 @@ xhr.send(data);
 function edit()
 {
 
-  var url = "http://192.168.137.117:5000/Topics/Edit";
+  var url = BaseURL+"Topics/Edit";
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url);
