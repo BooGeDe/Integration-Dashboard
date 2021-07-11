@@ -10,11 +10,16 @@
     <title>Integration Dashboard</title>
 </head>
 <body>
-  <nav class="navbar  navbar-light" style="box-shadow: 0 0 8px 0px #80808063;">
+  <nav class="navbar navbar-light" style="box-shadow: 0 0 8px 0px #80808063;">
     <a class="navbar-brand" href="#" style="line-height: 60px;">
       <img src="Logo.png" width="125" height="50" class="d-inline-block align-top" alt="">
       Integration Dashboard
     </a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" style="background-color:#f26623" href="TOU.html">TOU</a>
+      </li>
+      </ul>
     <span class="navbar-text" id="Username">
       Sherif Hassan
       <button class="btn btn-outline-danger my-2 my-sm-0" id="logout">logout</button>
@@ -127,8 +132,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="insert()">Save</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Add new</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="edit()">Save</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert()">Add new</button>
         </div>
       </div>
     </div>

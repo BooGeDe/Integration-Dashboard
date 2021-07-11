@@ -28,6 +28,7 @@ $("#dataTable").on("click","#Delete",function()
     {
       var tr = $(this).parent().parent();
       let deletedID= tr[0].children[0].innerText;
+      deleteRec(deletedID);
       console.log(deletedID);
     });
 
@@ -81,9 +82,28 @@ xhr.send();
 }
 
 
-function deleteRec()
+function deleteRec(ID)
 {
+  var url = "http://192.168.137.117:5000/Topics/Delete";
 
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+  
+  xhr.setRequestHeader("Content-Type", "application/json");
+  
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4) {
+        console.log('Record Deleted');
+     }};
+        
+        var data = `{
+      
+      "ID": "${ID}"
+  }`;
+
+  console.log(data);
+  
+  xhr.send(data);
 }
 
 function insert()
@@ -118,4 +138,29 @@ xhr.send(data);
 function edit()
 {
 
+  var url = "http://192.168.137.117:5000/Topics/Edit";
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url);
+
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.response);
+   }};
+      let ID = document.getElementById('ID').value;
+      let Desc = document.getElementById('Desc').value;
+      let Topic = document.getElementById('Topic').value;
+      let Steps = document.getElementById('stepsTextarea').value;
+      let Attach = document.getElementById('AttachmentURL').value;
+      console.log(Steps);
+var data = `{
+    "ATTACHMENT": "${Attach}",
+    "DESCRIPTION": "${Desc}",
+    "ID": "${ID}",
+    "STEPS": ${JSON.stringify(Steps)},
+    "TOPIC": "${Topic}"
+}`;
+xhr.send(data);
 }
