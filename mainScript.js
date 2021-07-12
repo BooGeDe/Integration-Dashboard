@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  checkLoginStatus();
 
 $("#dataTable").on("click","#showSteps",function()
 {
@@ -17,5 +18,26 @@ $("#dataTable").on("click","#showAttach",function()
     });
 });
 
+function checkLoginStatus()
+{
+  var logged= localStorage.getItem('isLoggedIn');
+  var curpage = localStorage.getItem('currentuser');
 
+    if (logged=='true')
+    {
+      console.log('welcome');
+    }
+    else
+    {
+      console.log(logged);
+      console.log(curpage);
+      window.location.replace("index.html");
+    
+    }
 
+}
+function logOut()
+{
+  localStorage.clear();
+  checkLoginStatus();
+}

@@ -50,16 +50,20 @@ function addBalance()
         console.log(Data);
      }};
         
-        var data = `
-      "{\"REQUEST_HEADER\":
-      {\"CHANNEL_CODE\":\"FWR001\",
-      \"CHANNEL_NAME\":\"Fawry\",
-      \"OPERATION_CODE\":\"Charg001\",
-      \"OPERATION_NAME\":\"Charging GiftCard\",
-      \"SECRET_PASSWORD\":\"F@W_Y2020\"},
-      \"REQUEST_BODY\":{\"MOBILE_NUMBER\":\"${mobileNumber.value}\",
-      \"AMOUNT\":${Balance},
-      \"TRANSACTION_REF_NUMBER\":\"1332232f525626\"}}"`;
+     var APIREQUEST = `{"REQUEST_HEADER":{"CHANNEL_CODE":"FWR001","CHANNEL_NAME":"Fawry","OPERATION_CODE":"Charg001","OPERATION_NAME":"Charging GiftCard","SECRET_PASSWORD":"F@W_Y2020"},"REQUEST_BODY":{"MOBILE_NUMBER":"${mobileNumber.value}","AMOUNT":${Balance},"TRANSACTION_REF_NUMBER":"876546789654376845768"}}`;
+
+
+
+     var data = JSON.stringify(APIREQUEST)
+       .replace(/\\n/g, "\\n")
+       .replace(/\\'/g, "\\'")
+       .replace(/\\"/g, '\\"')
+       .replace(/\\&/g, "\\&")
+       .replace(/\\r/g, "\\r")
+       .replace(/\\t/g, "\\t")
+       .replace(/\\b/g, "\\b")
+       .replace(/\\f/g, "\\f");
+   
 
   console.log(data);
   
